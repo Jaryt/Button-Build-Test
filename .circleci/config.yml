@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
 
-      - run: echo "testcafe chrome:headless tests/test.js -r xunit:/tmp/test-results/res.xml"
+      - run: echo "testcafe chrome tests/test.js --reporter xunit:test-results/res.xml "
       
       - store_test_results:
-          path: /tmp/test-results
+          path: test-results
