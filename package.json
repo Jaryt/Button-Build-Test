@@ -11,13 +11,10 @@
     "testcafe": "^1.6.0",
     "testcafe-reporter-xunit": "^2.1.0"
   },
-  "devDependencies": {
-      "testcafe": "*",
-      "testcafe-reporter-xunit": "*"
-  },
+  "devDependencies": {},
   "scripts": {
-	"test": "testcafe chrome:headless tests/test.js -r xunit:/tmp/test-results/res.xml"
     "start": "node server.js"
+	"test": "testcafe chrome:headless tests/test.js xunit:/tmp/test-results/res.xml"
   },
   "repository": {
     "type": "git",
