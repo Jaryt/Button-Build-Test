@@ -3,6 +3,9 @@ jobs:
     build:
         docker: 
             - image: circleci/node:12.13-browsers # the primary container, where your job's commands are run
+        
+        working_directory: ~/repo
+        
         steps:
             - checkout # check out the code in the project directory
             - restore_cache:
