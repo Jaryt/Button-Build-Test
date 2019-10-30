@@ -1,32 +1,25 @@
 {
   "name": "package",
   "version": "1.0.0",
-  "description": "HTML/NodeJS button test for CircleCI",
+  "description": "Button Build Test",
   "main": "server.js",
   "directories": {
     "test": "tests"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "express": "^4.17.1",
     "testcafe": "^1.6.0",
     "testcafe-reporter-xunit": "^2.1.0"
   },
-  "devDependencies": {},
   "scripts": {
+    "test": "testcafe chrome:headless tests/test.js -r xunit:/tmp/test-results/res.xml"
     "start": "node server.js"
-	"test": "testcafe chrome:headless tests/test.js xunit:/tmp/test-results/res.xml"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jaryt/Button-Build-Test.git"
   },
-  "keywords": [
-    "circleci",
-    "button",
-    "javascript",
-    "nodejs",
-    "html"
-  ],
   "author": "Jaryt Bustard",
   "license": "ISC",
   "bugs": {
