@@ -9,12 +9,15 @@ jobs:
       - run:
           name: update-npm
           command: 'sudo npm install -g npm@latest'
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-      - save_cache: 
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+       - restore_cache:
+          key: '-v1-node-cache-{{ checksum "yarn.lock" }}-{{ arch}}'
+      - run:
+          name: Install App
+          command: yarn
+      - save_cache:
+          key: '-v1-node-cache-{{ checksum "yarn.lock" }}-{{ arch }}'
           paths:
-            - ./node_modules
+            - node_modules
       - run:
           name: test
           command: npm test
