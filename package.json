@@ -7,15 +7,14 @@
     "test": "tests"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "yarn": "^1.19.1"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "testcafe": "^1.6.0",
     "testcafe-reporter-xunit": "^2.1.0"
   },
   "scripts": {
-    "test": "testcafe chrome:headless tests/test.js -r xunit:/home/circleci/project/test-results.xml",
+    "test": "testcafe chrome:headless tests/test.js -r xunit:/tmp/test-results.xml",
     "start": "node server.js"
   },
   "repository": {
