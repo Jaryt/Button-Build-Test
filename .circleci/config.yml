@@ -16,6 +16,9 @@ jobs:
           paths:
             - ./node_modules
       - run:
+          name: start
+          command: npm start
+      - run:
           name: test
           command: npm test
       - store_test_results: 
