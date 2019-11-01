@@ -1,19 +1,20 @@
 {
-  "name": "package",
+  "name": "buttontest",
   "version": "1.0.0",
   "description": "Button Build Test",
   "main": "server.js",
   "directories": {
     "test": "tests"
   },
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.17.1"
+  },
   "devDependencies": {
-    "express": "^4.17.1",
     "testcafe": "^1.6.0",
     "testcafe-reporter-xunit": "^2.1.0"
   },
   "scripts": {
-    "test": "testcafe chrome:headless tests/test.js -r xunit:/tmp/test-results/res.xml"
+    "test": "testcafe chrome:headless tests/test.js -r xunit:test-results.xml",
     "start": "node server.js"
   },
   "repository": {
