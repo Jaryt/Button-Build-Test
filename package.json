@@ -14,7 +14,7 @@
     "testcafe-reporter-xunit": "^2.1.0"
   },
   "scripts": {
-    "test": "testcafe chrome:headless tests/test.js -r xunit:/tmp/test-results.xml",
+    "test": "testcafe chrome:headless tests/test.js",
     "start": "node server.js"
   },
   "repository": {
