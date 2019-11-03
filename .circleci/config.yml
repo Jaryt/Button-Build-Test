@@ -6,11 +6,10 @@ workflows:
     jobs:
       - build
       - deploy
-jobs:    
-  build: 
+jobs:
+  build:
     docker:
       - image: circleci/node:12.13-browsers
-    executor: heroku/default
     steps:
       - checkout
       - restore_cache:
@@ -31,8 +30,9 @@ jobs:
       - store_test_results: 
           path: /tmp/test-results
   deploy:
-      executor: heroku/default
-        steps:
-           - heroku/install
-           - heroku/deploy-via-git:
-            only-branch: master
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git:
+          only-branch: master
