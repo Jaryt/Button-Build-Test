@@ -1,30 +1,29 @@
 version: 2.1
 orbs:
   heroku: circleci/heroku@0.0.8
-jobs:
-  build:
-    docker:
-      - image: circleci/node:12.13-browsers
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
-
-      - run: yarn install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      - run:
-          name: Run Test
-          command: yarn test
-      - store_test_results: 
-          path: /tmp/test-results
 workflows:
   heroku_deploy:
     jobs:
-      - heroku/deploy-via-git
+        build:
+        docker:
+          - image: circleci/node:12.13-browsers
+        steps:
+          - checkout
+          - restore_cache:
+              keys:
+              - v1-dependencies-{{ checksum "package.json" }}
+              - v1-dependencies-
+
+          - run: yarn install
+
+          - save_cache:
+              paths:
+                - node_modules
+              key: v1-dependencies-{{ checksum "package.json" }}
+
+          - run:
+              name: Run Test
+              command: yarn test
+          - store_test_results: 
+              path: /tmp/test-results
+          - heroku/deploy-via-git
