@@ -4,7 +4,7 @@
     "testcafe-reporter-xunit": "^2.1.0"
   },
   "scripts": {
-    "test": "testcafe chrome:headless tests/test.js --app node server.js -r xunit:res.xml"
+    "test": "testcafe chrome:headless tests/test.js --app node server.js -r xunit:/tmp/test-results/res.xml"
   },
   "name": "buttontest",
   "version": "1.0.0",
