@@ -4,15 +4,12 @@
     "testcafe-reporter-xunit": "^2.1.0"
   },
   "scripts": {
-    "test": "testcafe chrome:headless tests/test.js --app node server.js -r xunit:res.xml"
+    "test": "testcafe chrome:headless tests/test.js --app node server.js -r xunit:/tmp/test-results/res.xml"
   },
   "name": "buttontest",
   "version": "1.0.0",
   "main": "server.js",
   "repository": "https://github.com/Jaryt/Button-Build-Test.git",
   "author": "Jaryt Bustard",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "license": "MIT"
 }
