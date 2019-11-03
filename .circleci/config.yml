@@ -4,11 +4,10 @@ orbs:
 workflows:
   heroku_deploy:
     jobs:
-      - deploy 
+      - deploy
 jobs:
-  build:
-    docker:
-      - image: circleci/node:12.13-browsers
+  deploy:
+    executor: heroku/default
     steps:
       - checkout
       - restore_cache:
@@ -28,10 +27,6 @@ jobs:
           command: yarn test
       - store_test_results: 
           path: /tmp/test-results
-    deploy:
-      executor: heroku/default
-      steps:
-        - checkout
-        - heroku/install 
-        - heroku/deploy-via-git: 
-            only-branch: master
+      - heroku/install
+      - heroku/deploy-via-git:
+          only-branch: master
