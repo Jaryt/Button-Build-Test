@@ -28,11 +28,10 @@ jobs:
           command: yarn test
       - store_test_results: 
           path: /tmp/test-results
-    heroku_deploy:
-      deploy:
-        executor: heroku/default
-        steps:
-          - checkout
-          - heroku/install 
-          - heroku/deploy-via-git: 
-              only-branch: master
+    deploy:
+      executor: heroku/default
+      steps:
+        - checkout
+        - heroku/install 
+        - heroku/deploy-via-git: 
+            only-branch: master
