@@ -1,9 +1,10 @@
 version: 2.1
+orbs:
+  heroku: circleci/heroku@1.0.0
 jobs:
   build:
     docker:
       - image: circleci/node:12.13-browsers
-
     steps:
       - checkout
       - restore_cache:
@@ -23,3 +24,7 @@ jobs:
           command: yarn test
       - store_test_results: 
           path: /tmp/test-results
+workflows:
+  heroku_deploy:
+    jobs:
+      - heroku/deploy-via-git
