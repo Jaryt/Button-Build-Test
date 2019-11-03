@@ -6,9 +6,10 @@ workflows:
     jobs:
       - deploy
 jobs:
-  build:
+  deploy:
     docker:
-      - image: circleci/node:12.13-browsers
+        - image: circleci/node:12.13-browsers
+    executor: heroku/default
     steps:
       - checkout
       - restore_cache:
@@ -28,10 +29,6 @@ jobs:
           command: yarn test
       - store_test_results: 
           path: /tmp/test-results
-  deploy:
-    executor: heroku/default
-    steps:
-      - checkout
       - heroku/install
       - heroku/deploy-via-git:
           only-branch: master
