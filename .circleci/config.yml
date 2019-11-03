@@ -4,12 +4,12 @@ orbs:
 workflows:
   heroku_deploy:
     jobs:
-      - build
       - deploy
-jobs:
-  build:
+jobs:     
+  deploy:
     docker:
       - image: circleci/node:12.13-browsers
+    executor: heroku/default
     steps:
       - checkout
       - restore_cache:
@@ -29,10 +29,6 @@ jobs:
           command: npm test
       - store_test_results: 
           path: /tmp/test-results
-  deploy:
-    executor: heroku/default
-    steps:
-      - checkout
       - heroku/install
       - heroku/deploy-via-git:
           only-branch: master
