@@ -11,5 +11,8 @@
   "main": "server.js",
   "repository": "https://github.com/Jaryt/Button-Build-Test.git",
   "author": "Jaryt Bustard",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
